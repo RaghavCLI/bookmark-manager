@@ -1,0 +1,429 @@
+{
+  "name": "Aurora Design System",
+  "version": "1.0",
+  "description": "A modern, clean design system inspired by DeepSeek V3's aesthetic - featuring aurora gradient effects, glassmorphism, and sophisticated typography.",
+
+  "designPrinciples": [
+    "Minimalism with Impact - Use whitespace generously, let content breathe",
+    "Gradient Drama - Hero sections feature bold aurora/wave gradient backgrounds",
+    "Typography Hierarchy - Clear distinction between display, heading, and body text",
+    "Subtle Depth - Use soft shadows and blur effects rather than hard borders",
+    "Progressive Disclosure - Accordion patterns and expandable sections reduce cognitive load",
+    "Visual Proof - Use progress bars and metrics to demonstrate credibility",
+    "Card-Based Layout - Group related content in clean card containers"
+  ],
+
+  "colors": {
+    "primary": {
+      "50": "#eef2ff",
+      "100": "#e0e7ff",
+      "200": "#c7d2fe",
+      "300": "#a5b4fc",
+      "400": "#818cf8",
+      "500": "#6366f1",
+      "600": "#4f46e5",
+      "700": "#4338ca",
+      "800": "#3730a3",
+      "900": "#312e81",
+      "950": "#1e1b4b"
+    },
+    "neutral": {
+      "50": "#fafafa",
+      "100": "#f5f5f5",
+      "200": "#e5e5e5",
+      "300": "#d4d4d4",
+      "400": "#a3a3a3",
+      "500": "#737373",
+      "600": "#525252",
+      "700": "#404040",
+      "800": "#262626",
+      "900": "#171717",
+      "950": "#0a0a0a"
+    },
+    "accent": {
+      "blue": "#3b82f6",
+      "purple": "#8b5cf6",
+      "indigo": "#6366f1"
+    },
+    "semantic": {
+      "success": "#22c55e",
+      "warning": "#f59e0b",
+      "error": "#ef4444",
+      "info": "#3b82f6"
+    },
+    "gradients": {
+      "aurora": "linear-gradient(135deg, #1e1b4b 0%, #312e81 25%, #4338ca 50%, #6366f1 75%, #818cf8 100%)",
+      "auroraSubtle": "linear-gradient(180deg, #eef2ff 0%, #ffffff 50%, #f5f5f5 100%)",
+      "heroOverlay": "linear-gradient(to bottom, rgba(30, 27, 75, 0.9), rgba(99, 102, 241, 0.6), transparent)",
+      "cardShine": "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%)",
+      "buttonPrimary": "linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #818cf8 100%)"
+    },
+    "backgrounds": {
+      "page": "#ffffff",
+      "section": "#fafafa",
+      "card": "#ffffff",
+      "cardHover": "#f9fafb",
+      "hero": "#1e1b4b",
+      "footer": "#0a0a0a"
+    }
+  },
+
+  "typography": {
+    "fontFamily": {
+      "display": "'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif",
+      "body": "'Inter', 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif",
+      "mono": "'JetBrains Mono', 'SF Mono', 'Fira Code', monospace"
+    },
+    "scale": {
+      "display-2xl": { "size": "4.5rem", "lineHeight": "1", "weight": "800", "letterSpacing": "-0.025em" },
+      "display-xl": { "size": "3.75rem", "lineHeight": "1", "weight": "800", "letterSpacing": "-0.025em" },
+      "display-lg": { "size": "3rem", "lineHeight": "1.1", "weight": "700", "letterSpacing": "-0.02em" },
+      "h1": { "size": "2.25rem", "lineHeight": "1.2", "weight": "700", "letterSpacing": "-0.02em" },
+      "h2": { "size": "1.875rem", "lineHeight": "1.25", "weight": "600", "letterSpacing": "-0.015em" },
+      "h3": { "size": "1.5rem", "lineHeight": "1.3", "weight": "600", "letterSpacing": "-0.01em" },
+      "h4": { "size": "1.25rem", "lineHeight": "1.4", "weight": "600", "letterSpacing": "0" },
+      "body-lg": { "size": "1.125rem", "lineHeight": "1.75", "weight": "400" },
+      "body": { "size": "1rem", "lineHeight": "1.75", "weight": "400" },
+      "body-sm": { "size": "0.875rem", "lineHeight": "1.5", "weight": "400" },
+      "caption": { "size": "0.75rem", "lineHeight": "1.5", "weight": "500" },
+      "overline": { "size": "0.75rem", "lineHeight": "1.5", "weight": "600", "letterSpacing": "0.1em", "textTransform": "uppercase" }
+    },
+    "styles": {
+      "displayHighlight": "Use italic style for key words in display headings to create emphasis (e.g., 'the *Future* of generative *models*')",
+      "sectionLabel": "Small uppercase overline text in primary color above section headings",
+      "bodyMuted": "Body text in neutral-500 for secondary information"
+    }
+  },
+
+  "spacing": {
+    "unit": "4px",
+    "scale": {
+      "0": "0",
+      "1": "0.25rem",
+      "2": "0.5rem",
+      "3": "0.75rem",
+      "4": "1rem",
+      "5": "1.25rem",
+      "6": "1.5rem",
+      "8": "2rem",
+      "10": "2.5rem",
+      "12": "3rem",
+      "16": "4rem",
+      "20": "5rem",
+      "24": "6rem",
+      "32": "8rem"
+    },
+    "sectionPadding": {
+      "sm": "3rem 1rem",
+      "md": "5rem 1.5rem",
+      "lg": "6rem 2rem",
+      "xl": "8rem 2rem"
+    },
+    "containerMaxWidth": {
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1400px"
+    }
+  },
+
+  "borders": {
+    "radius": {
+      "none": "0",
+      "sm": "0.25rem",
+      "md": "0.5rem",
+      "lg": "0.75rem",
+      "xl": "1rem",
+      "2xl": "1.5rem",
+      "full": "9999px"
+    },
+    "width": {
+      "default": "1px",
+      "thick": "2px"
+    },
+    "colors": {
+      "subtle": "rgba(0, 0, 0, 0.05)",
+      "default": "#e5e5e5",
+      "strong": "#d4d4d4",
+      "focus": "#6366f1"
+    }
+  },
+
+  "shadows": {
+    "none": "none",
+    "sm": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+    "md": "0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05)",
+    "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05)",
+    "xl": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05)",
+    "glow": "0 0 40px rgba(99, 102, 241, 0.3)",
+    "card": "0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06)",
+    "cardHover": "0 12px 24px -4px rgba(0, 0, 0, 0.1), 0 4px 8px -2px rgba(0, 0, 0, 0.05)"
+  },
+
+  "effects": {
+    "blur": {
+      "sm": "4px",
+      "md": "8px",
+      "lg": "16px",
+      "xl": "24px",
+      "2xl": "40px"
+    },
+    "glassmorphism": {
+      "background": "rgba(255, 255, 255, 0.8)",
+      "backdropBlur": "16px",
+      "border": "1px solid rgba(255, 255, 255, 0.2)"
+    },
+    "transitions": {
+      "fast": "150ms ease",
+      "default": "200ms ease",
+      "slow": "300ms ease",
+      "spring": "500ms cubic-bezier(0.34, 1.56, 0.64, 1)"
+    }
+  },
+
+  "components": {
+    "navigation": {
+      "height": "64px",
+      "background": "transparent or glassmorphism when scrolled",
+      "position": "sticky top-0",
+      "blur": "backdrop-blur-lg when scrolled",
+      "borderBottom": "1px solid transparent, becomes subtle border on scroll",
+      "logo": "Left-aligned, icon + wordmark",
+      "links": "Center-aligned, medium weight, neutral-600 with hover to neutral-900",
+      "cta": "Right-aligned, primary button style"
+    },
+
+    "hero": {
+      "layout": "Full-width, min-height 90vh for landing, centered content",
+      "background": "Aurora gradient with animated wave/blur effect overlay",
+      "textColor": "White on dark gradient background",
+      "heading": "display-xl or display-2xl, with italic emphasis on key words",
+      "subheading": "body-lg, neutral-200, max-width 600px, centered",
+      "spacing": "Large padding (8rem top, 6rem bottom)",
+      "cta": "Centered, can include search input or button group",
+      "decoration": "Animated aurora waves or gradient blurs in background"
+    },
+
+    "searchInput": {
+      "width": "100%, max-width 600px",
+      "height": "56px",
+      "background": "rgba(255, 255, 255, 0.1) on dark, white on light",
+      "border": "1px solid rgba(255, 255, 255, 0.2)",
+      "borderRadius": "full (pill shape)",
+      "padding": "0 24px",
+      "placeholder": "neutral-400",
+      "icon": "Search icon on left, action button on right",
+      "focus": "ring-2 ring-primary-400"
+    },
+
+    "sectionHeader": {
+      "layout": "Centered or left-aligned",
+      "overline": "Overline text in primary color, uppercase, letter-spaced",
+      "heading": "h1 or h2, with potential italic emphasis",
+      "description": "body-lg, neutral-500, max-width 700px",
+      "spacing": "mb-12 to mb-16 before content"
+    },
+
+    "featureCard": {
+      "layout": "Flex column, icon top, then title, then description",
+      "background": "White",
+      "border": "1px solid neutral-100",
+      "borderRadius": "xl",
+      "padding": "24px",
+      "shadow": "card, cardHover on hover",
+      "icon": "48px, in colored rounded container (primary-100 bg, primary-600 icon)",
+      "title": "h4, neutral-900, mt-4",
+      "description": "body-sm, neutral-500, mt-2",
+      "hover": "translateY(-4px), shadow increase"
+    },
+
+    "accordion": {
+      "container": "border-b border-neutral-200",
+      "header": "py-5, flex justify-between, cursor-pointer",
+      "title": "h4 weight, neutral-900",
+      "icon": "Chevron or plus, rotates on open, neutral-400",
+      "content": "pb-5, body text, neutral-600",
+      "animation": "height transition, 200ms ease"
+    },
+
+    "progressBar": {
+      "container": "Full width, flex items-center gap-4",
+      "label": "body-sm, neutral-700, min-width for alignment",
+      "track": "h-2, bg-neutral-100, rounded-full, flex-1",
+      "fill": "h-2, bg-gradient-to-r from-primary-500 to-primary-400, rounded-full",
+      "value": "body-sm, font-medium, neutral-900, min-width for alignment"
+    },
+
+    "imageCard": {
+      "layout": "Aspect ratio container with image, overlay on hover",
+      "borderRadius": "xl",
+      "overflow": "hidden",
+      "image": "object-cover, scale on hover",
+      "overlay": "gradient from transparent to dark, opacity increases on hover",
+      "content": "Absolute bottom, padding, white text",
+      "title": "h4, white",
+      "description": "body-sm, white/70",
+      "hover": "image scale 1.05, overlay darker"
+    },
+
+    "button": {
+      "primary": {
+        "background": "gradient primary or solid primary-600",
+        "color": "white",
+        "padding": "12px 24px (md), 16px 32px (lg)",
+        "borderRadius": "lg or full",
+        "fontWeight": "600",
+        "shadow": "md, with primary-colored glow on hover",
+        "hover": "brightness increase, shadow increase, slight scale",
+        "active": "scale 0.98"
+      },
+      "secondary": {
+        "background": "white",
+        "color": "neutral-700",
+        "border": "1px solid neutral-200",
+        "padding": "12px 24px",
+        "borderRadius": "lg",
+        "fontWeight": "500",
+        "hover": "bg-neutral-50, border-neutral-300"
+      },
+      "ghost": {
+        "background": "transparent",
+        "color": "neutral-600",
+        "padding": "8px 16px",
+        "borderRadius": "md",
+        "fontWeight": "500",
+        "hover": "bg-neutral-100"
+      },
+      "iconButton": {
+        "size": "40px square",
+        "borderRadius": "lg",
+        "display": "flex items-center justify-center",
+        "iconSize": "20px"
+      }
+    },
+
+    "badge": {
+      "padding": "4px 12px",
+      "borderRadius": "full",
+      "fontSize": "caption",
+      "fontWeight": "500",
+      "variants": {
+        "primary": "bg-primary-100, text-primary-700",
+        "success": "bg-green-100, text-green-700",
+        "neutral": "bg-neutral-100, text-neutral-700"
+      }
+    },
+
+    "footer": {
+      "background": "neutral-950 or primary-950",
+      "textColor": "neutral-400 for body, white for headings",
+      "padding": "80px top, 40px bottom",
+      "layout": "Grid with logo/description left, link columns right",
+      "links": "neutral-400, hover white",
+      "divider": "border-t border-neutral-800",
+      "copyright": "caption size, neutral-500"
+    },
+
+    "ctaSection": {
+      "background": "gradient aurora or primary-900",
+      "textColor": "white",
+      "padding": "80px vertical",
+      "layout": "Centered, max-width content",
+      "heading": "h2, white",
+      "description": "body-lg, neutral-200",
+      "button": "Primary button, white bg with dark text, or outlined white"
+    }
+  },
+
+  "patterns": {
+    "pageStructure": [
+      "Navigation (sticky, glassmorphism)",
+      "Hero Section (full-width, gradient, centered content)",
+      "Features Grid (3-4 columns, icon cards)",
+      "Detailed Section (accordion or tabs)",
+      "Proof Section (metrics, progress bars, benchmarks)",
+      "Gallery/Showcase (image cards grid)",
+      "CTA Section (gradient background)",
+      "Footer (dark, multi-column)"
+    ],
+
+    "responsiveBreakpoints": {
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px"
+    },
+
+    "gridLayouts": {
+      "features": "grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6",
+      "cards": "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8",
+      "twoColumn": "grid-cols-1 lg:grid-cols-2 gap-12",
+      "footer": "grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8"
+    }
+  },
+
+  "animations": {
+    "fadeIn": "opacity 0 to 1, 300ms ease",
+    "slideUp": "translateY(20px) to 0, opacity 0 to 1, 400ms ease",
+    "scaleIn": "scale(0.95) to 1, opacity 0 to 1, 300ms ease",
+    "float": "translateY subtle oscillation, 3s ease-in-out infinite",
+    "pulse": "opacity oscillation, 2s ease-in-out infinite",
+    "shimmer": "background-position animation for loading states",
+    "staggeredList": "Each item delays by 50-100ms for cascade effect"
+  },
+
+  "darkMode": {
+    "background": {
+      "page": "#0a0a0a",
+      "section": "#171717",
+      "card": "#1f1f1f"
+    },
+    "text": {
+      "primary": "#fafafa",
+      "secondary": "#a3a3a3",
+      "muted": "#737373"
+    },
+    "border": "#262626"
+  },
+
+  "aiInstructions": {
+    "general": [
+      "Use Inter font family for all text",
+      "Maintain generous whitespace - sections should breathe",
+      "Use gradient backgrounds sparingly - primarily for hero and CTA sections",
+      "Cards should have subtle borders and shadows, not heavy outlines",
+      "Hover states should feel smooth with 200ms transitions",
+      "Use italic text for emphasis in headlines, not bold",
+      "Progress/metric sections add credibility - include where relevant"
+    ],
+    "heroSection": [
+      "Always use dark gradient background (aurora style)",
+      "Center all content",
+      "Use display typography with italic emphasis on 1-2 key words",
+      "Include subtle animated background elements (blurs, waves)",
+      "Keep copy minimal - one headline, one subheading, one CTA"
+    ],
+    "contentSections": [
+      "Alternate between white and neutral-50 backgrounds",
+      "Use section headers with overline labels",
+      "Implement grid layouts for features (4 columns on desktop)",
+      "Cards should lift on hover (translateY + shadow)",
+      "Use accordions for detailed information to reduce initial cognitive load"
+    ],
+    "callsToAction": [
+      "Primary CTAs use gradient buttons",
+      "CTA sections have dark/gradient backgrounds",
+      "Include social proof near CTAs when possible",
+      "Button text should be action-oriented ('Get Started', 'Try Now')"
+    ],
+    "mobileConsiderations": [
+      "Stack grids to single column below md breakpoint",
+      "Reduce section padding on mobile",
+      "Use full-width buttons on mobile",
+      "Hide decorative elements that don't add value on small screens",
+      "Ensure touch targets are minimum 44px"
+    ]
+  }
+}
