@@ -70,7 +70,7 @@ export function AddBookmarkForm() {
         <button
           type="submit"
           disabled={isLoading}
-          className="btn-glow inline-flex h-14 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-600 via-indigo-600 to-purple-600 px-8 text-base font-semibold text-white shadow-lg shadow-indigo-500/25 transition-all duration-200 hover:shadow-xl hover:shadow-indigo-500/30 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
+          className="btn-glow inline-flex h-14 min-w-[140px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-600 via-indigo-600 to-purple-600 px-6 sm:px-8 text-base font-semibold text-white shadow-lg shadow-indigo-500/25 transition-all duration-200 hover:shadow-xl hover:shadow-indigo-500/30 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70 disabled:shadow-none"
         >
           {isLoading ? (
             <>
@@ -78,7 +78,7 @@ export function AddBookmarkForm() {
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
               </svg>
-              <span className="hidden sm:inline">Adding...</span>
+              <span>Adding...</span>
             </>
           ) : (
             <>
@@ -86,6 +86,7 @@ export function AddBookmarkForm() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
               </svg>
               <span className="hidden sm:inline">Add Bookmark</span>
+              <span className="sm:hidden">Add</span>
             </>
           )}
         </button>
