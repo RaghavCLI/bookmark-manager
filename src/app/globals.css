@@ -1,9 +1,10 @@
+/* Import Inter font FIRST */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Then import Tailwind */
 @import "tailwindcss";
 
 /* Aurora Design System - Global Styles */
-
-/* Import Inter font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
   /* Primary palette */
@@ -82,7 +83,7 @@ body {
 
 .aurora-bg {
   position: relative;
-  background: var(--gradient-aurora);
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 25%, #4338ca 50%, #6366f1 75%, #818cf8 100%);
   overflow: hidden;
 }
 
