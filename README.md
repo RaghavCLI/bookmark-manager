@@ -132,6 +132,87 @@ src/
     └── supabase/         # Supabase client setup
 ```
 
+## Challenges & Solutions
+
+During the development of this project, I encountered several interesting challenges, particularly around real-time functionality:
+
+### 1. Real-time INSERT Events Not Working
+
+**Problem:** DELETE events were syncing across devices, but INSERT events were inconsistent - sometimes working, sometimes not.
+
+**Cause:** Supabase Realtime server-side filters (`filter: \`user_id=eq.${userId}\``) can be unreliable for INSERT events, especially with UUID columns.
+
+**Solution:** Changed from server-side filtering to client-side filtering:
+```javascript
+// Instead of filtering on the server
+.on("postgres_changes", { 
+  event: "INSERT", 
+  filter: `user_id=eq.${userId}` // Unreliable
+})
+
+// Filter on the client side
+.on("postgres_changes", { event: "*", schema: "public", table: "bookmarks" }, (payload) => {
+  const recordUserId = payload.new?.user_id || payload.old?.user_id;
+  if (recordUserId !== userId) return; // Client-side filter
+  // Handle event...
+})
+```
+
+### 2. Real-time Working Intermittently
+
+**Problem:** Real-time updates worked sometimes but not consistently across different sessions.
+
+**Cause:** The subscription was being created before the authentication session was fully loaded on the client.
+
+**Solution:** Wait for auth session before subscribing and listen for auth state changes:
+```javascript
+const setupSubscription = async () => {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) return; // Wait for auth
+  // Create subscription...
+};
+
+supabase.auth.onAuthStateChange((event, session) => {
+  if (event === "SIGNED_IN") {
+    setupSubscription(); // Resubscribe on auth change
+  }
+});
+```
+
+### 3. Item Count Not Updating in Real-time
+
+**Problem:** When adding a bookmark from one device, it appeared on another device, but the "X items" count badge didn't update.
+
+**Cause:** The count was rendered in a Server Component using server-fetched data, which doesn't update with client-side state changes.
+
+**Solution:** Moved the count badge inside the client component (`RealtimeBookmarkList`) where it has access to the live `bookmarks` state array.
+
+### 4. DELETE Events Missing Data
+
+**Problem:** When deleting bookmarks, the real-time `payload.old` was empty, so the client couldn't identify which bookmark to remove.
+
+**Cause:** By default, PostgreSQL only includes the primary key in the `old` record for DELETE events.
+
+**Solution:** Set the table's replica identity to FULL:
+```sql
+ALTER TABLE bookmarks REPLICA IDENTITY FULL;
+```
+
+### 5. CSS Styles Different in Production
+
+**Problem:** The aurora gradient background and custom styles looked correct locally but broke in the Vercel production build.
+
+**Cause:** The Google Fonts `@import` was placed after the Tailwind import, causing CSS compilation issues.
+
+**Solution:** Moved the font import to the top of the CSS file:
+```css
+/* Import fonts FIRST */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Then import Tailwind */
+@import "tailwindcss";
+```
+
 ## License
 
 MIT
