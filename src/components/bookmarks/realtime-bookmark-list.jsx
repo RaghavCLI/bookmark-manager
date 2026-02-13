@@ -16,39 +16,40 @@ export function RealtimeBookmarkList({ initialBookmarks, userId }) {
   }, [initialBookmarks]);
 
   useEffect(() => {
-    // Set up realtime subscription
+    // Set up realtime subscription - subscribe to all events and filter client-side
+    // This is more reliable than server-side filters for INSERT events
     const channel = supabase
       .channel(`bookmarks-${userId}`)
       .on(
         "postgres_changes",
         {
-          event: "INSERT",
+          event: "*",
           schema: "public",
           table: "bookmarks",
-          filter: `user_id=eq.${userId}`,
         },
         (payload) => {
-          // Add new bookmark to the top of the list (avoid duplicates)
-          setBookmarks((current) => {
-            const exists = current.some((b) => b.id === payload.new.id);
-            if (exists) return current;
-            return [payload.new, ...current];
-          });
-        }
-      )
-      .on(
-        "postgres_changes",
-        {
-          event: "DELETE",
-          schema: "public",
-          table: "bookmarks",
-          filter: `user_id=eq.${userId}`,
-        },
-        (payload) => {
-          // Remove deleted bookmark from the list
-          setBookmarks((current) =>
-            current.filter((bookmark) => bookmark.id !== payload.old.id)
-          );
+          console.log("Realtime event received:", payload.eventType, payload);
+          
+          // Filter by user_id on client side
+          const recordUserId = payload.new?.user_id || payload.old?.user_id;
+          if (recordUserId !== userId) {
+            console.log("Ignoring event for different user");
+            return;
+          }
+
+          if (payload.eventType === "INSERT") {
+            // Add new bookmark to the top of the list (avoid duplicates)
+            setBookmarks((current) => {
+              const exists = current.some((b) => b.id === payload.new.id);
+              if (exists) return current;
+              return [payload.new, ...current];
+            });
+          } else if (payload.eventType === "DELETE") {
+            // Remove deleted bookmark from the list
+            setBookmarks((current) =>
+              current.filter((bookmark) => bookmark.id !== payload.old.id)
+            );
+          }
         }
       )
       .subscribe((status) => {
