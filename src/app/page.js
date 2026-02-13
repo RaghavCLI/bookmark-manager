@@ -182,7 +182,15 @@ export default function Home() {
               <span className="font-semibold text-white">Smart Bookmarks</span>
             </div>
             <p className="text-sm text-neutral-500">
-              © 2026 Smart Bookmarks. Built with Next.js & Supabase.
+              Created by{" "}
+              <a
+                href="https://github.com/RaghavCLI"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-indigo-400 hover:text-indigo-300 transition-colors"
+              >
+                RaghavCLI
+              </a>
             </p>
           </div>
         </div>
