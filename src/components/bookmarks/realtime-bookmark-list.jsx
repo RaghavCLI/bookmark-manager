@@ -61,5 +61,23 @@ export function RealtimeBookmarkList({ initialBookmarks, userId }) {
     };
   }, [supabase, userId]);
 
-  return <BookmarkList bookmarks={bookmarks} />;
+  return (
+    <div>
+      {/* Section Header with real-time count */}
+      <div className="mb-6 flex items-end justify-between">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-indigo-600">
+            Your Collection
+          </p>
+          <h2 className="mt-1 text-2xl font-bold tracking-tight text-neutral-900">
+            Saved <em className="italic font-normal">bookmarks</em>
+          </h2>
+        </div>
+        <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-600">
+          {bookmarks.length} {bookmarks.length === 1 ? "item" : "items"}
+        </span>
+      </div>
+      <BookmarkList bookmarks={bookmarks} />
+    </div>
+  );
 }
